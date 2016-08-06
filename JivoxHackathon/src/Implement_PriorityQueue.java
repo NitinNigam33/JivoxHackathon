@@ -1,7 +1,7 @@
 import java.util.PriorityQueue;
 import java.util.Scanner;
 
-public class Implement_PriorityQueue {
+public class Implement_PriorityQueue extends Heap {
 	PriorityQueue<Integer> pq;
 
 	public Implement_PriorityQueue() {
@@ -13,8 +13,10 @@ public class Implement_PriorityQueue {
 	 * @param Integer array
 	 */
 	public void insert(Integer[] x) {
+		Heap heapSort = new Heap();
+		heapSort.sort(x);
 		for (int i = 0; i < x.length; i++) {
-			pq.offer(x[i]);
+			pq.add(x[i]);
 		}
 	}
 

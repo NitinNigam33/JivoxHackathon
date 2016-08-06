@@ -2,7 +2,7 @@ import java.math.BigInteger;
 import java.util.Random;
 import java.util.Scanner;
 
-public class TestComplexity extends Heap {
+public class TestComplexity {
 	public static void main(String[] args) {
 		System.out.println("enter the range 0 to n for test the sorting algo");
 		Scanner sc = new Scanner(System.in);
@@ -18,8 +18,9 @@ public class TestComplexity extends Heap {
 			arr2[k] = arr[k];
 		}
 
-		long start = System.nanoTime();
+		
 		Heap heapSort = new Heap();
+		long start = System.nanoTime();
 		heapSort.sort(arr);
 	
 		long end = System.nanoTime();
@@ -27,9 +28,10 @@ public class TestComplexity extends Heap {
 		System.out.println(" time taken to complete sorting from heapSort :" +microseconds + " (nanoSec)");
 
 		
-		long start1 = System.nanoTime();
+		
 		Quick_Sort qsort = new Quick_Sort();
-		qsort.sort(arr);
+		long start1 = System.nanoTime();
+		qsort.sort(arr2);
 		long end1 = System.nanoTime();
 		long microseconds1 = (end1 - start1) / 1000;
 		System.out.println(" time taken to complete sorting from quickSort :" +microseconds1 + " (nanoSec)");

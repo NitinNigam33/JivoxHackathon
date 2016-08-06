@@ -1,7 +1,4 @@
 import java.math.BigInteger;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -12,29 +9,30 @@ public class TestComplexity extends Heap {
 		BigInteger len = sc.nextBigInteger();
 		int range = len.intValue();
 		Integer[] arr =  new Integer[range];
+		Integer[] arr2 =  new Integer[range];
 		
 		Random rn = new Random();
 		
 		for(int k = 0; k < range; k++) {
 			arr[k] = rn.nextInt() % range;
+			arr2[k] = arr[k];
 		}
-		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-		Date date = new Date();
-		System.out.println( "Time before sorting from HeapSort " + dateFormat.format(date));
+
+		long start = System.nanoTime();
 		Heap heapSort = new Heap();
 		heapSort.sort(arr);
 	
-		DateFormat dateFormat1 = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-		Date date1 = new Date();
-		System.out.println( "Time after sorting from HeapSort " + dateFormat1.format(date1));
+		long end = System.nanoTime();
+		long microseconds = (end - start) / 1000;
+		System.out.println(" time taken to complete sorting from heapSort :" +microseconds + " (nanoSec)");
+
 		
-		DateFormat dateFormat11 = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-		Date date11 = new Date();
-		System.out.println( " Time before sorting from quickSort " + dateFormat11.format(date11));
+		long start1 = System.nanoTime();
 		Quick_Sort qsort = new Quick_Sort();
-		DateFormat dateFormat111 = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-		Date date111 = new Date();
-		System.out.println( " Time after sorting from quickSort " + dateFormat111.format(date111));
+		qsort.sort(arr);
+		long end1 = System.nanoTime();
+		long microseconds1 = (end1 - start1) / 1000;
+		System.out.println(" time taken to complete sorting from quickSort :" +microseconds1 + " (nanoSec)");
 		
 	}
 }

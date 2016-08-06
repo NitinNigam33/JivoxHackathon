@@ -9,14 +9,15 @@ public class Implement_PriorityQueue extends Heap {
 	}
 
 	/**
-	 * insert queue elements in minHeap orders 
+	 * insert queue elements in minHeap orders
+	 * so minimum value is the most high priority
 	 * @param Integer array
 	 */
 	public void insert(Integer[] x) {
 		Heap heapSort = new Heap();
 		heapSort.sort(x);
 		for (int i = 0; i < x.length; i++) {
-			pq.add(x[i]);
+			pq.offer(x[i]);
 		}
 	}
 
@@ -56,6 +57,8 @@ public class Implement_PriorityQueue extends Heap {
 		System.out.println("------------------------------------------------------");
 		System.out.print("Priority_queue is ");
 		queue.print();
+		
+		System.out.println("Highest priority element in priority queue is : " +queue.extractMin());
 
 	}
 }
